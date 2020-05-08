@@ -1,0 +1,28 @@
+.logoutBtn {
+  margin-top: 4px;
+  background: #dc3545;
+  color: #fff;
+  margin-left: 4px;
+}
+.welcomeText {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.welcomeText span {
+  color: #fff;
+  font-weight: bold;
+  animation: blink 1s linear infinite;
+  text-transform: capitalize;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

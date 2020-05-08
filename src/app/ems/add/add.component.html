@@ -1,0 +1,99 @@
+<app-navbar></app-navbar>
+<div class="dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form class="form-horizontal"  autocomplete="false" (submit)="addEmployee()">
+              <div class="formGroup">
+                <label for="name" class="col-sm-2 control-label"
+                  >Employee Name :
+                </label>
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    [(ngModel)]="model.name"
+                     
+                  />
+                   
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label for="position" class="col-sm-2 control-label"
+                  >Job Position :
+                </label>
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="model.position"
+                    name="position"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="department" class="col-sm-2 control-label"
+                  >Department Name :
+                </label>
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="model.department"
+                    name="department"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="department" class="col-sm-2 control-label"
+                  >Date of Joining :
+                </label>
+                <div class="col-sm-9">
+                  <input
+                    type="date"
+                    class="form-control"
+                    [(ngModel)]="model.dateofjoining"
+                    name="dateofjoining"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="salary" class="col-sm-2 control-label"
+                  >Employee's Salary :
+                </label>
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="model.salary"
+                    name="salary"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group editbtn">
+                <div class="col-sm-offset-2 col-sm-8">
+                  <button type="submit" class="btn btn-success">Save</button>
+                  <a class="btn btn-info text-light" (click)="goBack()"
+                    >Cancel</a
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+
+<footer></footer>

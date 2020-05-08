@@ -1,0 +1,32 @@
+.dashboard {
+    margin-top:30px;
+    padding-bottom: 50px;
+}
+@media(max-width:767px) {
+    .detailsSection
+{
+    min-width: 300px;
+    overflow: scroll;
+}  
+.dashboard .table-bordered a {
+    margin-bottom: 10px;
+}
+.searchBox {
+    margin-top:30px;
+}  
+}
+
+@media(min-width:768px) {
+    .dashboard .table-bordered a {
+        margin-right: 10px;
+        width: 80px;
+    }
+}
+
+@media(min-width:992px) {
+    .dashboard .table-bordered a {
+         
+        width: 100px;
+    }   
+}
+

@@ -1,0 +1,25 @@
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" [routerLink]="['/home']">Employee Management</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+           aria-expanded="false" aria-label="Toggle navigation"
+           (click)="toggleCollapsed()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+  <div  id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+    <ul class="navbar-nav ml-auto">
+         
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/add']" routerLinkActive="active">Add Employee</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active">Manage Profile</a></li>
+      <li><button type="button"  class="btn btn-block logoutBtn" (click)="logout()">logout</button></li>
+      <li class="text-light welcomeText">Welcome <span>{{displayname}}</span></li>
+       
+    </ul>
+  </div>  
+</nav>
+
+ 
+     

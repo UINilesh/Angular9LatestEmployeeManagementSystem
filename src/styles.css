@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    height:100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
+}
+
+.loginform {
+    position: relative;
+    top: 0;
+    margin-top: 50px;
+  }
+  @media(min-width:768px) {
+    .loginform {
+      position: absolute;
+      top: 50%;
+      margin-top: -15%;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
+  .loginform h2 {
+    padding-bottom: 10px;
+    padding-top: 0;
+  }
+  .loginform .form-group label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+  }
+  .loginform .btn-form {
+    text-align: center;
+  }
+  .loginform .btn-form button {
+    color: #fff;
+    background: #333;
+    width: 120px;
+    font-size: 18px;
+    border: none;
+  }
+  .loginform .btn-form a {
+    background: none;
+    font-size: 18px;
+    padding-left: 15px;
+  }
+  .table-bordered th, .table-bordered td{
+      text-align: center;
+  }  
+  .dashboard .table-bordered a {
+      margin-right: 10px;
+      width:100px;
+  }
+  .dashboard .table-bordered a:last-child{
+      margin-right: 0;
+  }
+  .actionField {
+      width:360px
+  }

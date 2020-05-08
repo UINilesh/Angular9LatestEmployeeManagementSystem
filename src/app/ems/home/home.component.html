@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+<div class="dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <select
+          name="filterName"
+          class="form-control"
+          [(ngModel)]="selectEmployeName"
+        >
+          <option [ngValue]="null">Please Select Name</option>
+          <option *ngFor="let employee of employees">
+            {{ employee.name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-4 ml-auto">
+        <div class="searchBox">
+        <input
+          type="text"
+          class="form-control"
+          name="searchString"
+          placeholder="Search Name Here..."
+          [(ngModel)]="searchString"
+        />
+        <p>You Typed - {{ searchString }}</p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="container">
+    <div class="detailsSection">
+      <div class="exportdata">
+        <button class="btn btn-info text-light" (click)="download()">Export Data</button>
+      </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td class="bg-dark text-light"><strong>Name</strong></td>
+          <td class="bg-dark text-light"><strong>Position</strong></td>
+          <td class="bg-dark text-light"><strong>Date of Joining</strong></td>
+
+          <td class="bg-dark text-light"><strong>Department</strong></td>
+          <td class="bg-dark actionField text-light">
+            <strong>Action</strong>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let employee of employees
+              | filter: 'name':selectEmployeName
+              | paginate
+                : { id: 'paginationalbum', itemsPerPage: 4, currentPage: p }
+              | filter: 'name':searchString
+          "
+        >
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.position }}</td>
+          <td>{{ employee.dateofjoining }}</td>
+          <td>{{ employee.department }}</td>
+          <td width="275">
+            <a class="btn btn-info" routerLink="/show/{{ employee._id }}"
+              >Detail</a
+            >
+            <a class="btn btn-success" routerLink="/edit/{{ employee._id }}"
+              >Edit</a
+            >
+            <a
+              class="btn btn-danger text-light"
+              (click)="deleteEmployee(employee._id)"
+              >Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+ 
+  </div>
+    <table width="100%" class="" style="text-align: center;">
+      <tr>
+        <td>
+          <pagination-controls id="paginationalbum" (pageChange)="p = $event">
+          </pagination-controls>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+  
+ 
+<br>
+<br>
+<br>
+<br>
+
+<footer></footer>
