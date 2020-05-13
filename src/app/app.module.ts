@@ -22,6 +22,9 @@ import { AuthguardGuard } from './guard/authguard.guard';
 import { FilterPipe } from './searchdata/filter.pipe';
 
 import { FilterParentPipe } from './searchdata/filter-parent.pipe';
+// after search hightlight text using custom pipe 
+import { HighlightPipe } from './searchdata/highlightText';
+
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -41,6 +44,7 @@ import { ProfileuserComponent } from './ems/profileuser/profileuser.component'; 
     RegisterComponent,
     FilterPipe,
     FilterParentPipe,
+    HighlightPipe,
     ProfileuserComponent
   ],
   imports: [

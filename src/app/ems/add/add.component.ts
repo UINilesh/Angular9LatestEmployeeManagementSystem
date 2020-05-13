@@ -37,9 +37,7 @@ export class AddComponent implements OnInit {
 
   model = new Employee();
   addEmployee() {
-     if (this.addformData.invalid) {
-      return;
-    }
+   
     this.empService.addEmployee(this.model).subscribe(() => this.goBack());
   }
   goBack() {
