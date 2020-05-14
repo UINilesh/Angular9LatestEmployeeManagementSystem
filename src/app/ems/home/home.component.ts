@@ -11,18 +11,18 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   // define select variable
- 
+  // checkall checkbox
+  isEmployee: boolean = false;
+  checkAllEmployees: boolean = false;
+
   selectEmployeName = null;
+  showlist = null;
   searchString: any;
   employees: any;
 
   // pagination code here
   p: number = 1;
   collection: any[];
-
-  // count numebr 
-  countvar:string;
-  
 
   constructor(
     private _empService: EmpService,
@@ -33,10 +33,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployees();
     this.selectEmployeName;
-    if(this.getEmployees.length>0){
-      this.countvar;
-      console.log(this.countvar);
-    }  
   }
 
   getEmployees() {
@@ -49,20 +45,27 @@ export class HomeComponent implements OnInit {
     if (confirm('Are you sure to delete')) {
       console.log('Implement delete functionality here');
       this._empService.deleteEmployee(id).subscribe(() => {
-      this.getEmployees();
+        this.getEmployees();
       });
     }
   }
 
-  
+  download() {
+    this._empService.downloadFile(this.employees, 'jsontocsv');
+  }
 
- download(){
-  this._empService.downloadFile(this.employees, 'jsontocsv');
-}
+  changeEmployeeData(event) {
+    if (event.target.name == 'checkEmployee') {
+      this.isEmployee = true;
+    }
 
- 
+    if (this.isEmployee && this.checkAllEmployees) {
+      event.target.checked = true;
+    }
+  }
 
- 
-
-  
+  allcheckbox(event) {
+    const checked = event.target.checked;
+    this.employees.forEach((item) => (item.selected = checked));
+  }
 }

@@ -29,8 +29,8 @@ import { HighlightPipe } from './searchdata/highlightText';
 import { HttpClientModule } from '@angular/common/http';
 
 import {NgxPaginationModule} from 'ngx-pagination';
-import { ProfileuserComponent } from './ems/profileuser/profileuser.component'; // <-- import the module
-
+import { ProfileuserComponent } from './ems/profileuser/profileuser.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +46,7 @@ import { ProfileuserComponent } from './ems/profileuser/profileuser.component'; 
     FilterParentPipe,
     HighlightPipe,
     ProfileuserComponent
+    
   ],
   imports: [
     BrowserModule,

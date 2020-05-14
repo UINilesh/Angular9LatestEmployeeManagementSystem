@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { ApiService } from "../../loginservice/auth.service";
-
+import { Subject } from 'rxjs/Subject';
+ 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,6 +12,9 @@ export class NavbarComponent implements OnInit {
   loginbtn: boolean;
   logoutbtn: boolean;
   displayname:any;
+
+  userActivity;
+  userInactive: Subject<any> = new Subject();
 
   constructor(private dataService: ApiService) {
     dataService.getLoggedInName.subscribe((name) => this.changeName(name));
@@ -40,6 +44,26 @@ export class NavbarComponent implements OnInit {
      // print name on admin page 
      this.displayname = this.dataService.getToken();
      console.log(this.dataService.getToken());
+
+     this.setTimeout();
+ this.userInactive.subscribe(() => {
+   this.logout();
+ }); 
+
+  }
+
+  setTimeout() {
+    this.userActivity = setTimeout(() => {
+      if (this.dataService.isLoggedIn) {
+        this.userInactive.next(undefined);
+        console.log('logged out');
+      }
+    },420000);
+  }
+
+  @HostListener('window:mousemove') refreshUserState() {
+    clearTimeout(this.userActivity);
+    this.setTimeout();
   }
 
   collapsed = true;
