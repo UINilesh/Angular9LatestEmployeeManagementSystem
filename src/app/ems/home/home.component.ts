@@ -24,6 +24,9 @@ export class HomeComponent implements OnInit {
   p: number = 1;
   collection: any[];
 
+  // option sort value 
+  optionvalue=[5,10,15,20];
+
   constructor(
     private _empService: EmpService,
     private router: Router,
@@ -33,6 +36,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployees();
     this.selectEmployeName;
+ 
+     
   }
 
   getEmployees() {
